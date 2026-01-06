@@ -4,23 +4,28 @@ pipeline {
     stages {
         stage('1-Build') {
             steps {
-                echo "Start of Stage Build"
+                ls -la
+                pwd
+                echo "Start of Stage Build"  >> log.log
                 echo "Building......."
-                echo "End of Stage Build"
+                echo "End of Stage Build" >> log.log
             }
         }
         stage('2-Test') {
             steps {
-                echo "Start of Stage Test"
+                echo "Start of Stage Test" >> log.log
                 echo "Testing......."
-                echo "End of Stage Build"
+                echo "End of Stage Build" >> log.log
             }
         }
         stage('3-Deploy') {
             steps {
-                echo "Start of Stage Deploy"
+                echo "Start of Stage Deploy" >> log.log
                 echo "Deploying......."
-                echo "End of Stage Build"
+                echo "End of Stage Build" >> log.log
+                ls -la
+                cat README.md
+                cat log.log
             }
         }
     }
