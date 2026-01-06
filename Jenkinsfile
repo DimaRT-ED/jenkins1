@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        OWNER = "Dima"
+        PROJECT = "Jenkins course"
+    }
 
     stages {
         stage('1-Build') {
@@ -7,6 +11,7 @@ pipeline {
                 sh "ls -la"
                 sh "pwd"
                 sh '''
+                  echo " this is project $PROJECT and his owner is $OWNER"
                   echo "Job $JOB_NAME Start of Stage Build"  >> log.log
                   echo "Building......."
                   echo "End of Stage Build" >> log.log
@@ -14,8 +19,12 @@ pipeline {
             }
         }
         stage('2-Test') {
+            environment{
+                PROJECT = "Stage 2 : Test"
+            }
             steps {
                 sh '''
+                  echo " this is project $PROJECT and his owner is $OWNER"
                   echo "Start of Stage Test" >> log.log
                   echo "Testing......."
                   echo "End of Stage Build" >> log.log
@@ -25,6 +34,7 @@ pipeline {
         stage('3-Deploy') {
             steps {
                 sh '''
+                  echo " this is project $PROJECT and his owner is $OWNER"
                   echo "Start of Stage Deploy" >> log.log
                   echo "Deploying......."
                   echo "Job $JOB_NAME End of Stage Build" >> log.log
