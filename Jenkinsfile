@@ -48,7 +48,7 @@ pipeline {
         stage("try & retry"){
             steps{
                 retry(3) { 
-			        sh 'echo "in retry'
+			        sh 'echo "in retry"'
 		        }
 		        timeout(time: 3, unit: 'SECONDS') { 
 			        sh 'sleep 5' 
