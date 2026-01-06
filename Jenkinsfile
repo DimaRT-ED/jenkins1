@@ -6,9 +6,11 @@ pipeline {
             steps {
                 sh "ls -la"
                 sh "pwd"
-                echo "Start of Stage Build"  >> log.log
-                echo "Building......."
-                echo "End of Stage Build" >> log.log
+                sh '''
+                  echo "Start of Stage Build"  >> log.log
+                  echo "Building......."
+                  echo "End of Stage Build" >> log.log
+                '''
             }
         }
         stage('2-Test') {
