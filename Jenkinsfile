@@ -50,7 +50,7 @@ pipeline {
                 retry(3) { 
 			        sh 'echo "in retry"'
 		        }
-		        timeout(time: 3, unit: 'SECONDS') { 
+		        timeout(time: 7, unit: 'SECONDS') { 
 			        sh 'sleep 5' 
                     sh 'echo HELLO'
 		        } 
