@@ -65,7 +65,7 @@ pipeline {
                             echo 'Parallel Tasks -> First task -> Retry ...'
 							sh "sleep 1"
                             // Add build commands here
-                            sh 'cat 1.txt'
+                            sh 'cat 2.txt'
 							
                         }
                         echo 'Running First task...'
@@ -76,7 +76,7 @@ pipeline {
                     steps {
                         echo 'Running Parallel Tasks -> Second task...'
                         sh "sleep 2"
-                        sh 'echo "111" > 1.txt'
+                        sh 'echo "111" > 2.txt'
                     }
                 }
             }
