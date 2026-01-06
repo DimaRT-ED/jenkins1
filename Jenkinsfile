@@ -7,7 +7,7 @@ pipeline {
                 sh "ls -la"
                 sh "pwd"
                 sh '''
-                  echo "Start of Stage Build"  >> log.log
+                  echo "Job $JOB_NAME Start of Stage Build"  >> log.log
                   echo "Building......."
                   echo "End of Stage Build" >> log.log
                 '''
@@ -27,7 +27,7 @@ pipeline {
                 sh '''
                   echo "Start of Stage Deploy" >> log.log
                   echo "Deploying......."
-                  echo "End of Stage Build" >> log.log
+                  echo "Job $JOB_NAME End of Stage Build" >> log.log
 
                   ls -la
                   cat README.md
