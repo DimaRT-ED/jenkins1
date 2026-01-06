@@ -76,7 +76,7 @@ pipeline {
                     steps {
                         echo 'Running Parallel Tasks -> Second task...'
                         sh "sleep 1"
-                        echo "111" > 1.txt
+                        sh 'echo "111" > 1.txt'
                     }
                 }
             }
