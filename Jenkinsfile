@@ -45,5 +45,16 @@ pipeline {
                 '''
             }
         }
+        stage("try & retry"){
+            steps{
+                retry(3) { 
+			        sh 'cat xyz'
+		        }
+		        timeout(time: 3, unit: 'SECONDS') { 
+			        sh 'sleep 5' 
+                    sh 'echo HELLO'
+		        } 
+            }
+        }
     }
 }
