@@ -6,6 +6,7 @@ pipeline {
     }
 
     stages {
+
         stage('1-Build') {
             steps {
                 sh "ls -la"
@@ -54,6 +55,28 @@ pipeline {
 			        sh 'sleep 5' 
                     sh 'echo HELLO'
 		        } 
+            }
+        }
+        stage('Parallel Tasks') {
+            parallel {
+                stage('First task') {
+                    steps {
+                        retry(3) {
+                            echo 'Parallel Tasks -> First task -> Retry ...'
+                            // Add build commands here
+                            sh 'cat 1.txt'
+                        }
+                        echo 'Running First task...'
+                        sh "sleep 2"
+                    }
+                }
+                stage('Second task') {
+                    steps {
+                        echo 'Running Parallel Tasks -> Second task...'
+                        sh "sleep 1"
+                        echo "111" > 1.txt
+                    }
+                }
             }
         }
     }
