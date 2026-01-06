@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('1-Build') {
             steps {
-                ls -la
-                pwd
+                sh "ls -la"
+                sh "pwd"
                 echo "Start of Stage Build"  >> log.log
                 echo "Building......."
                 echo "End of Stage Build" >> log.log
@@ -23,9 +23,11 @@ pipeline {
                 echo "Start of Stage Deploy" >> log.log
                 echo "Deploying......."
                 echo "End of Stage Build" >> log.log
-                ls -la
-                cat README.md
-                cat log.log
+                sh '''
+                  ls -la
+                  cat README.md
+                  cat log.log
+                '''
             }
         }
     }
