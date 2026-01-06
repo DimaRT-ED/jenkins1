@@ -63,10 +63,10 @@ pipeline {
                     steps {
                         retry(3) {
                             echo 'Parallel Tasks -> First task -> Retry ...'
-							
+							sh "sleep 1"
                             // Add build commands here
                             sh 'cat 1.txt'
-							sh "sleep 1"
+							
                         }
                         echo 'Running First task...'
                         sh "sleep 2"
